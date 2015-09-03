@@ -148,11 +148,11 @@ $baseFontSize: 14px; // Henseforth known as 1em
 
 @font-face {
   font-family: 'icons';
-  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?7155699291295089334');
-  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?7155699291295089334#iefix') format("embedded-opentype"),
-       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.woff?7155699291295089334') format("woff"),
-       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.ttf?7155699291295089334') format("truetype"),
-       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.svg?7155699291295089334#timber-icons') format("svg");
+  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?902932312509702047');
+  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?902932312509702047#iefix') format("embedded-opentype"),
+       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.woff?902932312509702047') format("woff"),
+       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.ttf?902932312509702047') format("truetype"),
+       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.svg?902932312509702047#timber-icons') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1425,7 +1425,7 @@ select {
           appearance: none;
   background-position: right center;
   background: {
-    image: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/ico-select.svg?7155699291295089334');
+    image: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/ico-select.svg?902932312509702047');
     repeat: no-repeat;
     position: right 10px center;
     color: transparent;
@@ -2823,8 +2823,12 @@ s {
     font-size:16px;
   }
 
+  .grid__item.large--text-right {
+    text-align: center;
+    }
+
   .free-shipping-orders{
-    font-size:7px;
+    font-size:6px;
   }
 
   .free-shipping-circle{
@@ -2841,11 +2845,15 @@ s {
   }
 
   .boxes{
+      height:auto;
+
 
       .grid__item{
-      min-height: 681px;
+      min-height: 525px;
       width:75%;
       margin:0 auto;
+      float:none;
+      
 
     }
 
@@ -2880,21 +2888,7 @@ s {
 
   }
 
- .nav-bar .large--hide.medium-down--show{
-    position:absolute;
-    z-index:5000;
-    right:0;
-    width:15%;
 
-    .one-half{
-      width:25%
-    }
-
-    .site-nav__link{
-      padding:15px 0;
-    }
-
- }
 
   #instafeed{
 

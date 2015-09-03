@@ -72,7 +72,7 @@ timber.cacheSelectors = function () {
 
     // Navigation
     $navigation              : $('#AccessibleNav'),
-    $mobileSubNavToggle      : $('.mobile-nav__toggle'),
+    $mobileSubNavToggle      : $('.m'),
 
     // Collection Pages
     $changeView              : $('.change-view'),
@@ -193,6 +193,8 @@ timber.mobileNavToggle = function () {
     $(this).parent().toggleClass('mobile-nav--expanded');
   });
 };
+
+
 
 timber.getHash = function () {
   return window.location.hash;
@@ -528,7 +530,13 @@ var feed = new Instafeed({
 });
 feed.run();
 
-
+$("ul.mobile-nav li div.mobile-nav__has-sublist").click(
+  function(e){
+    e.preventDefault();
+	$(this).parent().parent().toggleClass('mobile-nav--expanded');
+    $(this).toggleClass('mobile-nav--expanded');
+	}
+);
 
 
 // Initialize Timber's JS on docready

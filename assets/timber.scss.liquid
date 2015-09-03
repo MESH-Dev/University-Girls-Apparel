@@ -2010,7 +2010,9 @@ label.error {
 
 .mobile-nav__sublist {
   margin: 0;
-  max-height: 0;
+  //Closed subnav
+  height: 0;
+  //Changed from max-height:0 - SD 9/3/15
   visibility: hidden;
   overflow: hidden;
   @include backface(hidden);
@@ -2018,7 +2020,9 @@ label.error {
 
   .mobile-nav--expanded + & {
     visibility: visible;
-    max-height: 700px;
+    //Open subnav
+    height: auto;
+    //Changed from max-height:700px - SD 9/3/15
     @include transition(all 700ms cubic-bezier(0.57, 0.06, 0.05, 0.95));
   }
 
