@@ -1,0 +1,140 @@
+<!-- /templates/index.liquid -->
+{% comment %}
+
+  This is the homepage of your site.
+
+  More info on global variables (available on all templates):
+    - http://docs.shopify.com/themes/liquid-variables/global
+{% endcomment %}
+
+<div class="frame crazy" id="crazy">
+  <div class="slidee">
+
+    <!--  -->
+
+    <li><img src="{{ pages['frontpage'].metafields.c_f.1-slider-image }}" /> <a href="/collections/{{ pages['frontpage'].metafields.c_f.1-slider-link }}" class="slider-button">{{ pages['frontpage'].metafields.c_f.1-slider-text }}</a></li>
+    <li><img src="{{ pages['frontpage'].metafields.c_f.2-slider-image }}" /> <a href="/collections/{{ pages['frontpage'].metafields.c_f.2-slider-link }}" class="slider-button">{{ pages['frontpage'].metafields.c_f.2-slider-text }}</a></li>
+    <li><img src="{{ pages['frontpage'].metafields.c_f.3-slider-image }}" /> <a href="/collections/{{ pages['frontpage'].metafields.c_f.3-slider-url }}" class="slider-button">{{ pages['frontpage'].metafields.c_f.3-slider-text }}</a></li>
+    <li><img src="{{ pages['frontpage'].metafields.c_f.4-slider-image }}" /></li>
+    <li><img src="{{ pages['frontpage'].metafields.c_f.5-slider-image }}" /> <a href="/collections/{{ pages['frontpage'].metafields.c_f.5-slider-url }}" class="slider-button">{{ pages['frontpage'].metafields.c_f.5-slider-text }}</a></li>
+    <li><img src="{{ pages['frontpage'].metafields.c_f.6-slider-image }}" /> <a href="/collections/{{ pages['frontpage'].metafields.c_f.6-slider-url }}" class="slider-button">{{ pages['frontpage'].metafields.c_f.6-slider-text }}</a></li>
+    <li><img src="{{ pages['frontpage'].metafields.c_f.7-slider-image }}" /> <a href="/collections/{{ pages['frontpage'].metafields.c_f.7-slider-url }}" class="slider-button">{{ pages['frontpage'].metafields.c_f.7-slider-text }}</a></li>
+
+  </div>
+  <div class="left">
+
+
+
+
+
+  </div>
+
+  <div class="right">
+
+  </div>
+
+</div>
+
+<div class="home-rule">
+  <img src="//cdn.shopify.com/s/files/1/0867/4198/files/choose_2048x2048.png?12953314952019585258" />
+  <div class="home-rule-title">
+    {{ 'homepage.sections.featured_title' | t }}
+  </div>
+</div>
+
+<main class="wrapper main-content" role="main">
+
+<div class="grid-uniform">
+
+  {% comment %}
+    Show five collections, unless it's 'frontpage'.
+
+    Use an index variable in combination to the limit filter
+    to account for the frontpage collection being in top six returned.
+
+    Use variable isEmpty to check if no collections will be shown.
+    For empty store demo only.
+  {% endcomment %}
+  {% assign index = 1 %}
+  {% assign isEmpty = true %}
+
+  <div class="left-arrow">
+    <img src="//cdn.shopify.com/s/files/1/0867/4198/files/Arrow-left_large.png?6844042452464911472" />
+  </div>
+  <div class="right-arrow">
+    <img src="//cdn.shopify.com/s/files/1/0867/4198/files/Arrow-right_large.png?6844042452464911472" />
+  </div>
+
+  <div class="slider cyclepages" id="cyclepages">
+
+      <div class="slidee">
+
+        {% for collection in collections %}
+
+            {% unless collection.handle == 'frontpage' or collection.title == "View Only" %}
+              {% assign isEmpty = false %}
+              {% assign collection_item_width = 'large--one-fifth medium--one-third' %}
+
+              <li>
+
+                  {% comment %}
+                    Use capture to put the collection title in a variable that is used in liquid filters
+                  {% endcomment %}
+                  {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+
+                  <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}" class="grid__image {{ collection.handle }}">
+                    {% if collection.image %}
+                      {{ collection.image.src | img_url: 'large' | img_tag: collection_title }}
+                    {% else %}
+                      {{ collection.products.first.featured_image | img_url: 'large' | img_tag: collection_title }}
+                    {% endif %}
+                  </a>
+
+              </li>
+
+              {% assign index = index | plus: 1 %}
+            {% endunless %}
+
+
+        {% endfor %}
+
+    </div>
+  </div>
+
+  {% comment %}
+    For onboarding new users to your theme, we add some default collections and onboarding tutorials to help populate their store
+  {% endcomment %}
+
+  {% if isEmpty %}
+    {% unless emptyState %}
+      {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+      {% assign emptyState = true %}
+    {% endunless %}
+
+    {% include 'onboarding-featured-collections' %}
+  {% endif %}
+
+</div>
+
+<div class="grid-uniform">
+
+  <div class="boxes">
+
+    <div class="grid__item large--one-half">
+      <a href="{{ pages['frontpage'].metafields.c_f.image-url-1 }}">
+        <img src="{{ pages['frontpage'].metafields.c_f.image-1 }}" />
+        <img src="{{ pages['frontpage'].metafields.c_f.image-1-hover }}" class="top" />
+      </a>
+    </div>
+    <div class="grid__item large--one-half">
+      <a href="{{ pages['frontpage'].metafields.c_f.image-url-2 }}">
+        <img src="{{ pages['frontpage'].metafields.c_f.image-2 }}" />
+        <img src="{{ pages['frontpage'].metafields.c_f.image-2-hover }}" class="top" />
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+</main>
