@@ -28,12 +28,12 @@
     {% comment %}
       And for the good stuff, loop through the tags themselves.
     {% endcomment %}
-    {% for tag in collection.all_tags limit:2 %}
 
-        <li><a href="{{ collection.handle }}/missy">Missy</a></li>
-        <li><a href="{{ collection.handle }}/plus-size">Plus Size</a></li>
 
-    {% endfor %}
+        <li><a href="{{ collection.url }}/missy">Missy</a></li>
+        <li><a href="{{ collection.url }}/plus-size">Plus Size</a></li>
+
+
   </ul>
 
   <br/>
@@ -44,7 +44,9 @@
 
   <ul class="no-bullets">
     {% for collection in collections %}
-      <li class="{{ collection.handle }}"><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {% if collection.title != 'View Only' %}
+        <li class="{{ collection.handle }}"><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {% endif %}
     {% endfor %}
   </ul>
 
