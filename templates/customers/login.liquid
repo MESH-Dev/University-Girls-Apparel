@@ -17,6 +17,7 @@
       {% form 'customer_login' %}
 
         <h1>{{ 'customer.login.title' | t }}</h1>
+        <p class="l-account-create"><a href="{{ shop.url }}/account/register"> or Create an account</a></p>
 
         {{ form.errors | default_errors }}
 
@@ -31,7 +32,7 @@
         <p>
           <input type="submit" class="btn btn--full" value="{{ 'customer.login.sign_in' | t }}">
         </p>
-        <p><a href="{{ shop.url }}/account/register">Create an account</a></p>
+        <p><a href="{{ shop.url }}/account/register">I'm a new customer! Create an account.</a></p>
         <p><a href="{{ shop.url }}">{{ 'customer.login.cancel' | t }}</a></p>
         {% if form.password_needed %}
           <p><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
