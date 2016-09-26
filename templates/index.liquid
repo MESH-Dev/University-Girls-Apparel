@@ -71,7 +71,7 @@
 
         {% for collection in collections %}
 
-            {% unless collection.handle == 'frontpage' %}
+            {% unless collection.handle == 'frontpage' or collection.title == "View Only" %}
               {% assign isEmpty = false %}
               {% assign collection_item_width = 'large--one-fifth medium--one-third' %}
 

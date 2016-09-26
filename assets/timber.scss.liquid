@@ -1190,11 +1190,7 @@ ol.alpha { list-style: lower-alpha outside; }
   margin-left: 0;
 }
 
-.tags {
-  li:nth-child(1), li:nth-child(2) {
-    display:none;
-  }
-}
+
 
 .inline-list {
   margin-left: 0;
@@ -1805,6 +1801,8 @@ label.error {
   }
 }
 
+
+
 /*================ Home to hamburger and cart that toggle drawers ================*/
 .site-nav--mobile {
   @extend .site-nav;
@@ -1817,7 +1815,7 @@ label.error {
 .site-nav__link {
   display: block;
   text-decoration: none;
-  padding: ($gutter / 2) 40px;
+  padding: ($gutter / 2) 17%;
   white-space: nowrap;
   color: #4d4d4d;
   font-size: 14px;
@@ -1842,6 +1840,13 @@ label.error {
 
   .site-nav--mobile & {
     display: inline-block;
+  }
+}
+
+
+@media only screen and (max-width: 900px){
+  .site-nav__link{
+    padding: ($gutter / 2) 11%;
   }
 }
 
@@ -2857,7 +2862,7 @@ s {
       width:75%;
       margin:0 auto;
       float:none;
-      
+
 
     }
 
@@ -2879,7 +2884,7 @@ s {
 }
 
 @media only screen and (max-width : 400px){
-  
+
   .grid-uniform{
     margin-left:0;
   }
@@ -2920,6 +2925,9 @@ s {
   left: 0;
   top: 0;
   bottom: 0;
+  background-image:url('arrowicon-left.png');
+  background-repeat:no-repeat;
+  background-position: 5% center;
 }
 
 .right {
@@ -2928,8 +2936,16 @@ s {
   right: 0;
   top: 0;
   bottom: 0;
+  background-image:url('arrowicon-right.png');
+  background-repeat:no-repeat;
+  background-position:95% center;
 }
 
 .header-strip a {
   color: #c1c1c1;
+}
+
+.l-account-create,
+.l-account-create a{
+  font-size:18px;
 }

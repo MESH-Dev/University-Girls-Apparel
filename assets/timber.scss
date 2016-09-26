@@ -148,11 +148,11 @@ $baseFontSize: 14px; // Henseforth known as 1em
 
 @font-face {
   font-family: 'icons';
-  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?902932312509702047');
-  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?902932312509702047#iefix') format("embedded-opentype"),
-       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.woff?902932312509702047') format("woff"),
-       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.ttf?902932312509702047') format("truetype"),
-       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.svg?902932312509702047#timber-icons') format("svg");
+  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?1835883502355256127');
+  src: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.eot?1835883502355256127#iefix') format("embedded-opentype"),
+       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.woff?1835883502355256127') format("woff"),
+       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.ttf?1835883502355256127') format("truetype"),
+       url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/icons.svg?1835883502355256127#timber-icons') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1190,11 +1190,7 @@ ol.alpha { list-style: lower-alpha outside; }
   margin-left: 0;
 }
 
-.tags {
-  li:nth-child(1), li:nth-child(2) {
-    display:none;
-  }
-}
+
 
 .inline-list {
   margin-left: 0;
@@ -1425,7 +1421,7 @@ select {
           appearance: none;
   background-position: right center;
   background: {
-    image: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/ico-select.svg?902932312509702047');
+    image: url('//cdn.shopify.com/s/files/1/0867/4198/t/2/assets/ico-select.svg?1835883502355256127');
     repeat: no-repeat;
     position: right 10px center;
     color: transparent;
@@ -2010,7 +2006,9 @@ label.error {
 
 .mobile-nav__sublist {
   margin: 0;
-  max-height: 0;
+  //Closed subnav
+  height: 0;
+  //Changed from max-height:0 - SD 9/3/15
   visibility: hidden;
   overflow: hidden;
   @include backface(hidden);
@@ -2018,7 +2016,9 @@ label.error {
 
   .mobile-nav--expanded + & {
     visibility: visible;
-    max-height: 700px;
+    //Open subnav
+    height: auto;
+    //Changed from max-height:700px - SD 9/3/15
     @include transition(all 700ms cubic-bezier(0.57, 0.06, 0.05, 0.95));
   }
 
@@ -2853,7 +2853,7 @@ s {
       width:75%;
       margin:0 auto;
       float:none;
-      
+
 
     }
 
@@ -2875,7 +2875,7 @@ s {
 }
 
 @media only screen and (max-width : 400px){
-  
+
   .grid-uniform{
     margin-left:0;
   }

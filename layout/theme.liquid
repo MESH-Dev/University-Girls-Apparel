@@ -65,6 +65,21 @@
   {{ 'jquery.magnific-popup.min.js' | asset_url | script_tag }}
   {{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
 
+  <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1450776098494157');
+    fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1450776098494157&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
   <script>
 
     window.fbAsyncInit = function() {
@@ -437,45 +452,49 @@
       {% endcomment %}
 
       <div class="grid">
-        {% for article in blogs['news'].articles limit:3 %}
+
 
           <div class="grid__item large--one-half">
 
             <h2>The UG Latest</h2>
 
-            <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+            {% for article in blogs['news'].articles limit:3 %}
 
-            {% comment %}
-              Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
-              Since this is just a listing page, you can either use the excerpt or truncate the full article.
-            {% endcomment %}
-            <div class="rte">
-              {% if article.excerpt.size > 0 %}
-                {{ article.excerpt }}
-              {% else %}
-                <p>{{ article.content | strip_html | truncatewords: 70 }}</p>
-              {% endif %}
-            </div>
+              <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
 
-            {% comment %}
-              Show off meta information like number of comments and tags.
-            {% endcomment %}
-            <ul>
-              {% if blog.comments_enabled? %}
-              <li>
-                <a href="{{ article.url }}#comments">
-                  {{ article.comments_count }}
-                  {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
-                </a>
-              </li>
-              {% endif %}
-            </ul>
+              {% comment %}
+                Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
+                Since this is just a listing page, you can either use the excerpt or truncate the full article.
+              {% endcomment %}
+              <div class="rte">
+                {% if article.excerpt.size > 0 %}
+                  {{ article.excerpt }}
+                {% else %}
+                  <p>{{ article.content | strip_html | truncatewords: 70 }}</p>
+                {% endif %}
+              </div>
 
-            <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
+              {% comment %}
+                Show off meta information like number of comments and tags.
+              {% endcomment %}
+              <ul>
+                {% if blog.comments_enabled? %}
+                <li>
+                  <a href="{{ article.url }}#comments">
+                    {{ article.comments_count }}
+                    {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+
+              <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
+
+            {% endfor %}
 
           </div>
 
-        {% endfor %}
+
 
         <div class="grid__item large--one-half">
 
@@ -731,6 +750,21 @@
   	// });
 
   </script>
+
+
+<input type="hidden" name="_pc_params" value="{{ shop.permanent_domain }}:{{ customer.id }}" />
+
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    // _pa.orderId = "myOrderId"; // OPTIONAL: attach unique conversion identifier to conversions
+    // _pa.revenue = "19.99"; // OPTIONAL: attach dynamic purchase values to conversions
+    // _pa.productId = "myProductId"; // OPTIONAL: Include product ID for use with dynamic ads
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/54593e86cb5d603a4a000003.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
 
 </body>
 </html>
